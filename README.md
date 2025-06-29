@@ -2,6 +2,10 @@
 
 A simple Todo application built with Node.js/Express backend and Next.js frontend running on the same port for MERN stack intern assessment.
 
+## 🌐 Live Demo
+
+**Live Application**: [https://todolist-zbe5.onrender.com](https://todolist-zbe5.onrender.com)
+
 ## Features
 
 ### Backend (Node.js/Express)
@@ -37,19 +41,23 @@ A simple Todo application built with Node.js/Express backend and Next.js fronten
 ```
 todo-app/
 ├── app/
-│   ├── globals.css      # Beautiful, responsive styles
-│   ├── layout.js        # Next.js root layout
-│   └── page.js          # Main todo application
-├── server.js            # Express server with Next.js integration
-├── next.config.js       # Next.js configuration
-├── package.json         # Dependencies and scripts
-└── README.md            # This file
+│   ├── components/
+│   │   └── ClientOnly.js    # Client-side only component
+│   ├── globals.css          # Beautiful, responsive styles
+│   ├── layout.js            # Next.js root layout
+│   └── page.js              # Main todo application
+├── server.js                # Express server with Next.js integration
+├── next.config.js           # Next.js configuration
+├── package.json             # Dependencies and scripts
+├── render.yaml              # Render deployment configuration
+├── .npmrc                   # NPM configuration
+└── README.md                # This file
 ```
 
 ## Prerequisites
 
-- Node.js (version 14 or higher)
-- npm or yarn package manager
+- Node.js (version 18 or higher)
+- npm package manager
 
 ## Installation & Setup
 
@@ -77,7 +85,7 @@ npm run dev
 
 ## API Endpoints
 
-### Base URL: `http://localhost:3000/api`
+### Base URL: `http://localhost:3000/api` (Local) or `https://todolist-zbe5.onrender.com/api` (Live)
 
 | Method | Endpoint | Description | Request Body | Response |
 |--------|----------|-------------|--------------|----------|
@@ -89,11 +97,19 @@ npm run dev
 ### Example API Usage
 
 ```bash
-# Get all tasks
+# Get all tasks (Local)
 curl http://localhost:3000/api/tasks
 
-# Add a new task
+# Get all tasks (Live)
+curl https://todolist-zbe5.onrender.com/api/tasks
+
+# Add a new task (Local)
 curl -X POST http://localhost:3000/api/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Learn Next.js", "completed": false}'
+
+# Add a new task (Live)
+curl -X POST https://todolist-zbe5.onrender.com/api/tasks \
   -H "Content-Type: application/json" \
   -d '{"title": "Learn Next.js", "completed": false}'
 
@@ -109,31 +125,36 @@ curl http://localhost:3000/api/health
 
 ## Testing the Application
 
-### 1. Start the Application
+### 1. Live Application
+
+Visit [https://todolist-zbe5.onrender.com](https://todolist-zbe5.onrender.com) to test the deployed application.
+
+### 2. Local Development
 
 ```bash
 npm install
 npm start
 ```
 
-### 2. Access the Application
+### 3. Access the Application
 
-- **Frontend**: http://localhost:3000
-- **API**: http://localhost:3000/api
+- **Live Frontend**: https://todolist-zbe5.onrender.com
+- **Local Frontend**: http://localhost:3000
+- **Local API**: http://localhost:3000/api
 - **Health Check**: http://localhost:3000/api/health
 
-### 3. Test Functionality
+### 4. Test Functionality
 
-1. Open `http://localhost:3000` in your browser
+1. Open the application in your browser
 2. Test the following functionality:
    - Add new tasks using the form
    - Toggle task completion by clicking the checkbox or "Complete/Undo" button
    - Delete tasks using the "Delete" button
    - Verify responsive design on mobile devices
 
-### 4. API Testing
+### 5. API Testing
 
-1. Test the health endpoint: `http://localhost:3000/api/health`
+1. Test the health endpoint: `https://todolist-zbe5.onrender.com/api/health`
 2. Test API endpoints using curl or Postman
 3. Verify all CRUD operations work correctly
 
@@ -158,6 +179,7 @@ npm start
 - ✅ Smooth animations and transitions
 - ✅ Visual feedback for user actions
 - ✅ Accessible design patterns
+- ✅ "Built by Vivek" attribution
 
 ### Code Quality
 - ✅ Clean, readable code structure
@@ -172,6 +194,12 @@ npm start
 - ✅ API routes under `/api` prefix
 - ✅ Simplified deployment and development
 
+### Deployment
+- ✅ Successfully deployed on Render
+- ✅ Production-ready configuration
+- ✅ Optimized for cloud deployment
+- ✅ Environment-specific settings
+
 ## Available Scripts
 
 ```bash
@@ -181,6 +209,19 @@ npm run dev         # Start development server
 npm run build       # Build for production
 npm run lint        # Run ESLint
 ```
+
+## Deployment
+
+This application is deployed on [Render](https://render.com) and is accessible at:
+**https://todolist-zbe5.onrender.com**
+
+### Deployment Configuration
+
+- **Platform**: Render
+- **Environment**: Node.js
+- **Build Command**: `npm install && npm run build`
+- **Start Command**: `npm start`
+- **Node.js Version**: 24.3.0
 
 ## Troubleshooting
 
@@ -199,21 +240,10 @@ npm run lint        # Run ESLint
    - Clear `.next` folder: `rm -rf .next`
    - Reinstall dependencies: `rm -rf node_modules && npm install`
 
-### Development Commands
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Start production server
-npm start
-
-# Build for production
-npm run build
-```
+4. **Deployment issues**
+   - Ensure all dependencies are in `dependencies` (not `devDependencies`)
+   - Check Render logs for specific error messages
+   - Verify Node.js version compatibility
 
 ## Evaluation Criteria Met
 
