@@ -1,0 +1,31 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Todo application with Express backend and Next.js frontend",
+  "main": "server.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "start:dev": "node server.js",
+    "server": "node server.js",
+    "lint": "next lint",
+    "prod": "npm run build && npm start"
+  },
+  "dependencies": {
+    "next": "14.0.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0",
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["todo", "nextjs", "express", "mern"],
+  "author": "",
+  "license": "MIT"
+} 
