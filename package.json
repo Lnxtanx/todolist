@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm install && next build",
     "start": "NODE_ENV=production node server.js",
     "start:dev": "node server.js",
     "server": "node server.js",
@@ -27,8 +27,10 @@
     "nodemon": "^3.0.1"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
+  "packageManager": "npm@8.0.0",
   "keywords": ["todo", "nextjs", "express", "mern"],
   "author": "",
   "license": "MIT"

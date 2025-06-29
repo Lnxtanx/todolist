@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: todo-app
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true 
